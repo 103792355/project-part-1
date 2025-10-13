@@ -5,35 +5,35 @@
 */
 
 :root {
-  /* Base colors */
-  --bg: #f8fafc; /* surface background */
-  --surface: #ffffff; /* elevated surface */
-  --text: #0f172a; /* primary text */
-  --muted: #475569; /* secondary text */
-  --border: rgba(0,0,0,0.08);
-  --shadow: 0 8px 24px rgba(0,0,0,0.08);
-  --ring: rgba(14,165,233,0.15);
+  /* Base colors — light blue theme */
+  --bg: #e6f9fe; /* very light blue background */
+  --surface: #f4fbff; /* light-blue surface */
+  --text: #0c4a6e; /* deep blue text for contrast */
+  --muted: #075985; /* secondary blue text */
+  --border: rgba(14,165,233,0.35); /* blue-tinted borders */
+  --shadow: 0 8px 24px rgba(2,132,199,0.12);
+  --ring: rgba(14,165,233,0.25);
 
   /* Brand */
-  --primary: #0ea5e9; /* sky-500 */
-  --primary-contrast: #062026; /* text on primary */
-  --accent: #7c3aed; /* violet-700 */
+  --primary: #0ea5e9; /* Apply button blue */
+  --primary-contrast: #083344; /* readable text on primary */
+  --accent: #0284c7; /* darker blue accent */
   /* Approximate total sticky header height for offsetting fixed elements */
   --header-offset: 128px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0b1220; /* slate-950-ish */
-    --surface: #0f172a; /* slate-900 */
-    --text: #e5e7eb; /* slate-200 */
-    --muted: #94a3b8; /* slate-400 */
-    --border: rgba(255,255,255,0.1);
-    --shadow: 0 8px 24px rgba(0,0,0,0.5);
-    --ring: rgba(14,165,233,0.25);
-    --primary: #22d3ee; /* cyan-400 brighter on dark */
+    --bg: #0a1929; /* dark blue */
+    --surface: #0f2434; /* elevated dark blue */
+    --text: #e0f2fe; /* light blue text */
+    --muted: #93c5fd; /* secondary light blue */
+    --border: rgba(56,189,248,0.25);
+    --shadow: 0 8px 24px rgba(2,132,199,0.45);
+    --ring: rgba(56,189,248,0.35);
+    --primary: #22d3ee; /* brighter cyan on dark */
     --primary-contrast: #002b36;
-    --accent: #a78bfa; /* violet-400 */
+    --accent: #38bdf8; /* light sky blue */
   }
 }
 
