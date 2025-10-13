@@ -18,6 +18,8 @@
   --primary: #0ea5e9; /* sky-500 */
   --primary-contrast: #062026; /* text on primary */
   --accent: #7c3aed; /* violet-700 */
+  /* Approximate total sticky header height for offsetting fixed elements */
+  --header-offset: 128px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,10 +63,11 @@ body#about { background: linear-gradient(160deg, rgba(244,114,182,0.08), transpa
 .topbar { display: flex; justify-content: flex-end; padding: 0.25rem 1rem; font-size: 0.9rem; color: var(--muted); }
 .topbar .email { color: var(--muted); text-decoration: none; }
 .topbar .email:hover { color: var(--text); }
-.brand { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1rem; }
+.brand { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 1rem; }
+.brand img { width: 40px; height: 40px; }
 .company-name { font-size: 1.25rem; letter-spacing: 0.5px; }
-.site-nav ul { display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0.25rem 0.5rem 0.75rem 1rem; }
-.site-nav a { display: inline-block; padding: 0.5rem 0.75rem; color: var(--text); text-decoration: none; border-radius: 0.5rem; transition: background-color 160ms ease, color 160ms ease; }
+.site-nav ul { display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0 0.5rem 0.5rem 1rem; }
+.site-nav a { display: inline-block; padding: 0.4rem 0.6rem; color: var(--text); text-decoration: none; border-radius: 0.5rem; transition: background-color 160ms ease, color 160ms ease; }
 .site-nav a[aria-current="page"], .site-nav a:hover { background: rgba(15,23,42,0.06); }
 
 @media (prefers-color-scheme: dark) {
@@ -95,11 +98,17 @@ body#about { background: linear-gradient(160deg, rgba(244,114,182,0.08), transpa
 .site-footer a { color: var(--primary); }
 .site-footer a:hover { text-decoration: underline; }
 
-/* Jobs page: float aside */
-.with-aside { display: flow-root; }
-/* Pin General information to top-right on Jobs page (desktop) */
-body#jobs .jobs-aside { position: fixed; top: 24px; right: 24px; width: 320px; margin: 0; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; z-index: 5; box-shadow: var(--shadow); }
-.jobs-list { padding-right: 0.5rem; margin-right: 360px; }
+/* Jobs page: two-column layout with sticky aside */
+.with-aside { display: grid; grid-template-columns: 1fr 320px; gap: 1rem; align-items: start; }
+/* Let jobs-list children participate in the main grid */
+.with-aside .jobs-list { display: contents; }
+/* Make the section heading span both columns so rows align */
+.with-aside .jobs-list > h2 { grid-column: 1 / -1; margin: 0 0 0.5rem 0; }
+/* Ensure all job cards render in the left column */
+.with-aside .job { grid-column: 1; }
+/* General information aside sticks under header */
+body#jobs .jobs-aside { grid-column: 2; grid-row: 2; position: sticky; top: calc(var(--header-offset) + 16px); width: 100%; margin: 0; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; z-index: 5; box-shadow: var(--shadow); height: fit-content; }
+.jobs-list { padding-right: 0; margin-right: 0; }
 .job { background: var(--surface); border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent); border-left: 4px solid var(--accent); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; box-shadow: var(--shadow); }
 .job h3::before { content: "⟡ "; color: var(--accent); }
 .job .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.25rem 1rem; padding-left: 1.25rem; }
