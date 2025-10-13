@@ -1,0 +1,147 @@
+/* Group 8 global styles - single stylesheet
+   - Design system tokens with light/dark themes
+   - Element, class, id, pseudo-class, pseudo-element selectors
+   - Responsive reflow on resize
+*/
+
+:root {
+  /* Base colors */
+  --bg: #f8fafc; /* surface background */
+  --surface: #ffffff; /* elevated surface */
+  --text: #0f172a; /* primary text */
+  --muted: #475569; /* secondary text */
+  --border: rgba(0,0,0,0.08);
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+  --ring: rgba(14,165,233,0.15);
+
+  /* Brand */
+  --primary: #0ea5e9; /* sky-500 */
+  --primary-contrast: #062026; /* text on primary */
+  --accent: #7c3aed; /* violet-700 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220; /* slate-950-ish */
+    --surface: #0f172a; /* slate-900 */
+    --text: #e5e7eb; /* slate-200 */
+    --muted: #94a3b8; /* slate-400 */
+    --border: rgba(255,255,255,0.1);
+    --shadow: 0 8px 24px rgba(0,0,0,0.5);
+    --ring: rgba(14,165,233,0.25);
+    --primary: #22d3ee; /* cyan-400 brighter on dark */
+    --primary-contrast: #002b36;
+    --accent: #a78bfa; /* violet-400 */
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Page accents */
+body#home { background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,0.2), transparent), var(--bg); }
+body#jobs { background: linear-gradient(160deg, rgba(167,139,250,0.08), transparent 60%), var(--bg); }
+body#apply { background: linear-gradient(160deg, rgba(16,185,129,0.1), transparent 60%), var(--bg); }
+body#about { background: linear-gradient(160deg, rgba(244,114,182,0.08), transparent 60%), var(--bg); }
+
+.container { width: min(1100px, 92%); margin: 2rem auto; }
+
+/* Accessible skip link */
+.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { position: fixed; left: 1rem; top: 1rem; width: auto; height: auto; padding: 0.5rem 0.75rem; background: var(--primary); color: var(--primary-contrast); border-radius: 0.5rem; z-index: 100; }
+
+.site-header { position: sticky; top: 0; background: color-mix(in oklab, var(--surface) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 10; }
+.topbar { display: flex; justify-content: flex-end; padding: 0.25rem 1rem; font-size: 0.9rem; color: var(--muted); }
+.topbar .email { color: var(--muted); text-decoration: none; }
+.topbar .email:hover { color: var(--text); }
+.brand { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1rem; }
+.company-name { font-size: 1.25rem; letter-spacing: 0.5px; }
+.site-nav ul { display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0.25rem 0.5rem 0.75rem 1rem; }
+.site-nav a { display: inline-block; padding: 0.5rem 0.75rem; color: var(--text); text-decoration: none; border-radius: 0.5rem; transition: background-color 160ms ease, color 160ms ease; }
+.site-nav a[aria-current="page"], .site-nav a:hover { background: rgba(15,23,42,0.06); }
+
+@media (prefers-color-scheme: dark) {
+  .site-nav a[aria-current="page"], .site-nav a:hover { background: rgba(255,255,255,0.08); }
+}
+
+.hero { padding: 2rem 0; }
+.hero .lead { font-size: 1.1rem; color: var(--muted); }
+.key-points { columns: 2 280px; }
+.key-points li::marker { color: var(--primary); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1rem; box-shadow: var(--shadow); }
+.card h4 { margin-top: 0.25rem; }
+
+/* Buttons */
+.button, button, input[type="submit"], input[type="button"], .btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1rem; border-radius: 0.5rem; border: 1px solid transparent;
+  background: var(--primary); color: var(--primary-contrast); cursor: pointer;
+  text-decoration: none; font-weight: 600; transition: filter 160ms ease, transform 80ms ease;
+}
+.button:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, .btn:hover { filter: brightness(0.96); }
+.button:active, button:active, input[type="submit"]:active, input[type="button"]:active, .btn:active { transform: translateY(1px); }
+.button.secondary, button.secondary, .btn.secondary { background: #334155; color: var(--text); }
+
+.site-footer { display: flex; gap: 1rem; justify-content: center; align-items: center; padding: 2rem 1rem; border-top: 1px solid var(--border); }
+.site-footer a { color: var(--primary); }
+.site-footer a:hover { text-decoration: underline; }
+
+/* Jobs page: float aside */
+.with-aside { display: flow-root; }
+/* Pin General information to top-right on Jobs page (desktop) */
+body#jobs .jobs-aside { position: fixed; top: 24px; right: 24px; width: 320px; margin: 0; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; z-index: 5; box-shadow: var(--shadow); }
+.jobs-list { padding-right: 0.5rem; margin-right: 360px; }
+.job { background: var(--surface); border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent); border-left: 4px solid var(--accent); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; box-shadow: var(--shadow); }
+.job h3::before { content: "⟡ "; color: var(--accent); }
+.job .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.25rem 1rem; padding-left: 1.25rem; }
+.requirements { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+
+/* Apply form */
+.apply-form { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; max-width: 760px; margin: 0 auto; box-shadow: var(--shadow); }
+fieldset { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; }
+fieldset { background: color-mix(in oklab, var(--surface) 92%, transparent); }
+legend { padding: 0 0.6rem; color: var(--accent); font-weight: 600; background: color-mix(in oklab, var(--accent) 12%, transparent); border-radius: 0.5rem; }
+label { display: inline-block; margin-bottom: 0.4rem; font-weight: 600; }
+input, select, textarea { width: 100%; padding: 0.7rem 0.8rem; border-radius: 0.5rem; border: 1px solid color-mix(in oklab, var(--border) 60%, transparent); background: var(--surface); color: var(--text); font-size: 1rem; }
+input::placeholder, textarea::placeholder { color: #64748b; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 1px; box-shadow: 0 0 0 4px var(--ring); }
+.apply-form.was-validated input:invalid,
+.apply-form.was-validated select:invalid,
+.apply-form.was-validated textarea:invalid { border-color: rgba(239,68,68,0.7); }
+input:focus:invalid, select:focus:invalid, textarea:focus:invalid { border-color: rgba(239,68,68,0.9); }
+input:valid { border-color: rgba(16,185,129,0.6); }
+.inline { display: flex; gap: 0.75rem; align-items: center; border: none; padding: 0; }
+.inline label, .skills label { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.6rem; background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); border-radius: 0.5rem; font-weight: 500; }
+.inline input[type="radio"], .skills input[type="checkbox"] { accent-color: #22d3ee; }
+.skills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.75rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.form-actions { display: flex; gap: 0.75rem; }
+
+/* About page tables */
+table.hobbies, table.members { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); }
+table.hobbies th, table.hobbies td, table.members th, table.members td { padding: 0.75rem; border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent); text-align: left; }
+table.hobbies thead th, table.members thead th { background: color-mix(in oklab, var(--accent) 18%, transparent); color: var(--text); }
+table.hobbies tbody tr:hover, table.members tbody tr:hover { background: color-mix(in oklab, var(--primary) 14%, transparent); }
+
+/* Responsive */
+@media (max-width: 800px) {
+  body#jobs .jobs-aside { position: static; width: 100%; margin: 0 0 1rem 0; }
+  .jobs-list { margin-right: 0; }
+  .grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .site-nav ul { flex-wrap: wrap; }
+}
+
+

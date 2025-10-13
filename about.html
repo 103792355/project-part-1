@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Group 8 - Group Info</title>
+    <meta name="description" content="Group 8 members, tutor, IDs and interests.">
+    <meta name="theme-color" content="#0ea5e9">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body id="about">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="topbar">
+        <a class="email" href="mailto:contact@group8.example">contact@group8.example</a>
+      </div>
+      <div class="brand">
+        <img src="images/logo.jpg" alt="Group 8 logo" width="48" height="48">
+        <h1 class="company-name">Group 8</h1>
+      </div>
+      <nav class="site-nav" aria-label="Site navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="jobs.html">Positions</a></li>
+          <li><a href="apply.html">Apply</a></li>
+          <li><a href="about.html" aria-current="page">Group Info</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container" id="main">
+      <section>
+        <h2>Group and class</h2>
+        <ul>
+          <li><strong>Group name:</strong> Group 8
+            <ul>
+              <li><strong>Unit:</strong> COS10026</li>
+              <li><strong>Tutor:</strong> Vu Ngoc Binh</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Members</h2>
+        <h3>Contacts</h3>
+        <table class="members">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pham Hai Duong (Leader)</td>
+              <td>0362406812</td>
+            </tr>
+            <tr>
+              <td>Doan Viet Anh (Member)</td>
+              <td>0834085607</td>
+            </tr>
+            <tr>
+              <td>Nguyen Tuan Minh (Member)</td>
+              <td>0988138303</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Student IDs</h3>
+        <ul>
+          <li>Pham Hai Duong
+            <ul>
+              <li>Student ID: <em>103792355</em></li>
+              <li>Profile: Hanoi, likes running</li>
+            </ul>
+          </li>
+          <li>Doan Viet Anh
+            <ul>
+              <li>Student ID: <em>106202446</em></li>
+              <li>Profile: Ho Chi Minh City, likes reading</li>
+            </ul>
+          </li>
+          <li>Nguyen Tuan Minh
+            <ul>
+              <li>Student ID: <em>103532548</em></li>
+              <li>Profile: Da Nang, likes photography</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Contributions</h3>
+        <dl class="contrib">
+          <dt>Pham Hai Duong</dt>
+          <dd>Ideation, task allocation, coded Home and Jobs pages.</dd>
+          <dt>Doan Viet Anh</dt>
+          <dd>Coded Application page, prepared documentation.</dd>
+          <dt>Nguyen Tuan Minh</dt>
+          <dd>Coded Group Info page.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Group photo</h2>
+        <figure class="group-photo">
+          <img src="images/groupphoto.jpg" alt="Group 8 photo" loading="lazy">
+          <figcaption>Please use an image under 300KB.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Hobbies table</h2>
+        <table class="hobbies">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Hobbies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pham Hai Duong</td>
+              <td>Running, hiking</td>
+            </tr>
+            <tr>
+              <td>Doan Viet Anh</td>
+              <td>Reading, drawing</td>
+            </tr>
+            <tr>
+              <td>Nguyen Tuan Minh</td>
+              <td>Photography, travel</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Group 8</p>
+      <p><a href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener">Jira</a></p>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+  </html>
+
+

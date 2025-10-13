@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Group 8 - Home</title>
+    <meta name="description" content="Group 8 company intro and careers.">
+    <meta name="theme-color" content="#0ea5e9">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body id="home">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="topbar">
+        <a class="email" href="mailto:contact@group8.example">contact@group8.example</a>
+      </div>
+      <div class="brand">
+        <img src="images/logo.jpg" alt="Group 8 logo" width="64" height="64">
+        <h1 class="company-name">Group 8</h1>
+      </div>
+      <nav class="site-nav" aria-label="Site navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="jobs.html">Positions</a></li>
+          <li><a href="apply.html">Apply</a></li>
+          <li><a href="about.html">Group Info</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container" id="main">
+      <section class="hero">
+        <h2>About the company</h2>
+        <p class="lead">We are Group 8, building reliable data and software solutions using modern technologies with a strong focus on user experience and code quality.</p>
+        <ul class="key-points">
+          <li>Agile teamwork, clear ownership</li>
+          <li>Continuous learning and improvement</li>
+          <li>High standards for quality and security</li>
+        </ul>
+      </section>
+
+      <section class="highlights">
+        <h3>What we value</h3>
+        <div class="cards">
+          <article class="card">
+            <h4>Clarity</h4>
+            <p>Clear goals, measurable outcomes, open communication.</p>
+          </article>
+          <article class="card">
+            <h4>Craft</h4>
+            <p>Engineering discipline, testing, and code reviews.</p>
+          </article>
+          <article class="card">
+            <h4>Care</h4>
+            <p>Respect users, teammates, and our commitments.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mission">
+        <h3>Our mission</h3>
+        <p class="lead">We help teams make better decisions with trustworthy data. From ingestion to analytics, we design platforms that are observable, secure, and built to last.</p>
+        <p>We believe impact happens when technology, process, and people are aligned. That is why we partner closely with stakeholders, iterate quickly, and ship solutions that are simple to operate and delightful to use.</p>
+      </section>
+
+      <section class="capabilities">
+        <h3>What we do</h3>
+        <div class="cards">
+          <article class="card">
+            <h4>Data Platforms</h4>
+            <p>Design and run scalable batch/stream pipelines with strong SLAs and cost visibility.</p>
+          </article>
+          <article class="card">
+            <h4>Analytics Engineering</h4>
+            <p>Model clean, well-documented datasets and shared metrics for BI and self-service.</p>
+          </article>
+          <article class="card">
+            <h4>Observability</h4>
+            <p>End-to-end monitoring, lineage, and alerting for quicker incident response.</p>
+          </article>
+          <article class="card">
+            <h4>Governance & Security</h4>
+            <p>Privacy by design, access controls, and compliance-minded data practices.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="process">
+        <h3>How we work</h3>
+        <ol>
+          <li>Understand the problem and success criteria with stakeholders.</li>
+          <li>Design small, reversible changes and iterate with feedback.</li>
+          <li>Automate tests and deploy via CI/CD with clear rollback plans.</li>
+          <li>Measure outcomes, document decisions, and continuously improve.</li>
+        </ol>
+      </section>
+
+      <section class="tech">
+        <h3>Tech we use</h3>
+        <ul class="key-points">
+          <li>Python, SQL, dbt</li>
+          <li>Airflow/Prefect, Spark</li>
+          <li>Kafka/Kinesis, REST/Batch</li>
+          <li>AWS/GCP, Terraform</li>
+        </ul>
+      </section>
+
+      <section class="projects">
+        <h3>Recent projects</h3>
+        <div class="cards">
+          <article class="card">
+            <h4>Unified Ingestion</h4>
+            <p>Consolidated 12 data sources into a single, observable pipeline with error budgets.</p>
+          </article>
+          <article class="card">
+            <h4>Metrics Layer</h4>
+            <p>Standardized company-wide KPIs with a governed metrics layer to ensure consistency.</p>
+          </article>
+          <article class="card">
+            <h4>Cost Optimization</h4>
+            <p>Reduced compute spend by 28% via job right-sizing and storage tiering strategies.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h3>Join us</h3>
+        <p>We are always looking for people who care about quality and user impact.</p>
+        <p>
+          <a class="button" href="jobs.html">See open positions</a>
+          <a class="button secondary" href="apply.html">Apply now</a>
+        </p>
+      </section>
+
+      <section class="faq">
+        <h3>FAQ</h3>
+        <details>
+          <summary>Where do you work from?</summary>
+          <p>We are hybrid-first with offices in Hanoi and Ho Chi Minh City.</p>
+        </details>
+        <details>
+          <summary>How do you measure success?</summary>
+          <p>We define measurable outcomes upfront and track leading indicators under clear SLAs.</p>
+        </details>
+        <details>
+          <summary>What is the interview process?</summary>
+          <p>Initial chat, technical discussion, and a collaborative problem-solving session.</p>
+        </details>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Group 8</p>
+      <p><a href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener">Jira</a></p>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </body>
+  </html>
+
+
